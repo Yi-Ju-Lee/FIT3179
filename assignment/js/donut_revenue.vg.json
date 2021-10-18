@@ -1,0 +1,33 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A simple pie chart with embedded data.",
+  "width": 250,
+  "height": 250,
+  "data": {
+    "url": "https://raw.githubusercontent.com/Yi-Ju-Lee/FIT3179-homework/main/week10/data/f_1000.csv"
+  },
+  "transform": [
+    {
+      "calculate": "datum.rank <= 50 ? 'Rank 1 - 50' : 'Rank 51 - 1000'",
+      "as": "Top 50 and others"
+    }
+  ],
+  "layer": [
+    {"mark": {"type": "arc", "innerRadius": 50, "stroke": "#fff"}},
+    {
+      "mark": {"type": "text", "radius": 155},
+      "encoding": {
+        "text": {"aggregate": "sum", "field": "revenue", "type": "quantitative"}
+      }
+    }
+  ],
+  "encoding": {
+    "theta": {
+      "aggregate": "sum",
+      "field": "revenue",
+      "type": "quantitative",
+      "stack": true
+    },
+    "color": {"field": "Top 50 and others", "type": "nominal"}
+  }
+}

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Do You Know Where The Money Goes?</title>
+  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+  <!-- Import pure.css -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <!-- CSS file -->
+  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+
+
+</head>
+<body>
+
+ <div class="page">
+
+   <!-- Section 0 - pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <h1><span class="head">Do You Know Where&nbsp;<span class="highlight">The Money</span>&nbsp;Goes?</span></span></h1>
+        <span>The Pareto Principle, which is also known as the 80-20 rule, can be applied in many fields, such as
+        economics, science, software, and sport (Dunford, Su & Tamang, 2014). In economics, one popular 
+        phenomenon is that the richest 20% of the world's population generate 80% of the world's wealth. 
+        <br><br>Fortune 1000 in US are the selected top 1000 companies in America. Based on the Pareto Principle, 
+        most money are controlled by the few top companies. Therefore, by analysing the data from Fortune 1000, we can 
+        get an idea of where the main money goes in US.
+        
+        <br><br>This visualization presents Fortune 1000 data in US and the relation of the revenue of the companies 
+        in sectors and the gender of CEO. The ranking showed are based on the revenue of the company instead of profit.
+        </span>
+      </div>
+    </div>
+  <!-- end pure grid group -->
+
+<h3><br></h3>
+
+    <!-- Section 1 - pure grid group -->
+    <h2><span class="title">An Overview of the Companies in Fortune 1000 </span></h2>
+    <div class="pure-g">
+        <div class="pure-u-1-3">
+          <div class="description description-left">
+            <span>This graph showed the rankings by revenue and sectors of overall Fortune 1000. <br><br>Interestingly,
+             the revenue of the first company (Walmart) is <span class="highlight">almost two times</span> of the revenue of the second company 
+             (CVS Health). <br><br> The number of companies shows in the graph can be selected by the slider below.
+            </span>
+          </div>
+        </div>
+        <div class="pure-u-1-3">
+          <div id="vis1" class="vis-container" style="o"></div>
+        </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <h3><br></h3>
+
+
+    <!-- Section 2 - pure grid group -->
+    <h2><span class="title">An Overview of the Sectors in Fortune 1000 </span></h2>
+    <div class="pure-g">
+        <div class="pure-u-2-3">
+          <div id="vis2"  class="vis-container"></div>
+        </div>
+        <div class="pure-u-1-3">
+          <div class="description description-right">
+          <span> This graph presented the total revenue of each sector. <br><br> The sum of<span class="highlight"> 
+          the 5 highest</span> sectors are much greater than the sum of the remainings, which means most incomes are made by 
+          <span class="highlight">Financials, Health Care, Retailing, Energy, and Technology</span> in Fortune 1000.
+          </span>
+          </div>
+        </div>
+      
+    </div>
+    <!-- end pure grid group -->
+
+    <h3><br><br></h3>
+
+     <!-- Section 3 - pure grid group -->
+    <h2><span class="title">A Map of the Companies in Fortune 1000 </span></h2>
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <span>The below map presented the distribution of the companies in Fortune 1000. <br><br> One of the intersting
+        points is that <span class="highlight">more</span> companies in Fortune 1000 are located <span class="highlight">in the East</span> America than located in the West. In 
+        addition, <span class="highlight">Financial</span> is the highest number of companies in the East, whereas <span class="highlight">Technology</span> is the largest number
+        of companies in the West. </span>
+      </div>
+    </div>
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <div id="vis3"  class="vis-container"></div>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <h3><br><br></h3>
+
+    <!-- Section 4 - pure grid group -->
+    <h2><span class="title">The gender of CEO in Fortune 1000 </span></h2>
+    <div class="pure-g">
+      <div class="pure-u-1-2">
+        <div class="description description-left">
+        <span>This graph showed the total revenue in sectors by the gender of CEO. <br><br> <span class="highlight">Male CEOs</span> gain more revenue
+        compared to female CEOs, especially <span class="highlight">in Financials</span>. In addition, <span class="highlight">Health Care</span> is the sector that female CEOs have
+        the highest total revenue among all sectors.  </span>
+        </div>
+      </div>
+      <div class="pure-u-1-2">
+        <div id="vis4"  class="vis-container"></div>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <h3><br><br></h3>
+
+    <!-- Section 5 - pure grid group -->
+    <h2><span class="title">Top 50 and others in Fortune 1000 </span></h2>
+    <div class="pure-g">
+        <div class="pure-u-1-2">
+          <div id="vis5"  class="vis-container"></div>
+        </div>
+        <div class="pure-u-1-2">
+          <div class="description description-right">
+          <span>This graph presented the total revenue of top 50 companies and the others in Fortune 1000. <br><br>
+          Based on the Pareto Principle, most properties are generated by the vital few. In this donut chart, <span class="highlight">the vital 
+          few (Rank 1 - 50)</span> have the revenue close to the others (Rank 51 - 1000). The total revenue is similar, but 
+          the number of companies is <span class="highlight">twenty times larger</span>.
+          </span>
+          </div>
+        </div>
+      
+    </div>
+    <!-- end pure grid group -->
+
+    <h3><br><br></h3>
+
+    <h2><span class="title">Conclusion </span></h2>
+    <span>Generally speaking, from the data of Fortune 1000 in US, the highest total revenue is from the  
+    Financials sector, which is mostly found in the East America, the male CEO, and the top 50 companies. However, 
+    when it comes to the Rank 1 (Walmart), it is not in Financials and located in the Middle America. There are still 
+    other factors that influence the revenue of the companies. Therefore, we can keep finding where the money goes.
+     </span>
+  
+    <h3><br><br></h3>
+    <div class="pure-g">
+      <div class="pure-u-1-1 small-font">
+        <span class="small-text">This visualisation is created by <a href="https://github.com/Yi-Ju-Lee" target="_blank">Yi-Ju Lee</a>. The datasource is <a href="https://github.com/Yi-Ju-Lee/FIT3179/tree/main/assignment" target="_blank">some data repository online</a>.</span>
+        <span class="small-text"><br>Reference List:</span>
+        <span class="small-text-ref"><br>&emsp;&emsp;Dunford, R., Su, Q., & Tamang, E. (2014). 'The Pareto Principle', The Plymouth Student Scientist, 7(1), p. 140-148.</span>
+      </div>
+    </div>
+  
+
+  </div> <!-- end page -->
+   
+<script type="text/javascript">
+  var specVis1 = "./js/bar_company.vg.json";
+  var specVis2 = "./js/bar_revenue.vg.json";
+  var specVis3 = "./js/map_us_revenue.vg.json";
+  var specVis4 = "./js/bar_ceo.vg.json";
+  var specVis5 = "./js/donut_revenue.vg.json";
+
+  vegaEmbed('#vis1', specVis1, {"actions": false});
+  
+   vegaEmbed('#vis2', specVis2, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#vis3', specVis3, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#vis4', specVis4, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  vegaEmbed('#vis5', specVis5, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/Yi-Ju-Lee/FIT3179/main/assignment/data/f_1000.csv"
+  },
+  "title": "Total Revenue By Sectors of Fortune 1000",
+  "mark": {"type": "bar"},
+  "encoding": {
+    "x": {"field": "sector", "title": "Sector"},
+    "y": {"aggregate": "sum", "field": "revenue", "title": "Sum of Revenue"},
+    "color": {
+        "field": "sector",
+        "type": "nominal",
+        "scale": {"scheme": "category20"},
+        "legend": null
+      }
+  }
+}

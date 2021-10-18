@@ -1,0 +1,35 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": { "url": "https://raw.githubusercontent.com/Yi-Ju-Lee/FIT3179-homework/main/week10/data/Fortune_1000.csv"},
+    "transform": [
+      {"calculate": "datum.ceo_woman == 'yes' ? 'Female' : 'Male'", "as": "gender"},
+      {"calculate": "datum.ceo_woman == 'yes' ? -datum.revenue : datum.revenue", "as": "signed_people"}
+    ],
+    "width": 250,
+    "height": 230,
+  
+    "layer":[{
+    "mark": "bar",
+    "encoding": {
+      "y": {
+        "field": "sector","type": "nominal"
+      },
+      "x": {
+        "aggregate": "sum", "field": "signed_people",
+        "title": "revenue",
+        "axis": {"format": "s"}
+      },
+      "color": {
+        "field": "gender",
+        "scale": {"range": ["#675193", "#ca8861"]},
+        "legend": {"orient": "top", "title": null}
+      }
+    }}
+    ],
+  
+    "config": {
+      "view": {"stroke": null},
+      "axis": {"grid": false}
+    }
+  }
+  

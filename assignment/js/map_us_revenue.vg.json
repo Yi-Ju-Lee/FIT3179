@@ -1,0 +1,63 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Revenue of Fortune 1000 in USA",
+    "projection": {"type": "albersUsa"},
+    "width": 680,
+    "height": 450,
+    "layer": [
+      {
+        "mark": {
+          "type": "geoshape",
+          "fill": "#ddd",
+          "stroke": "#fff",
+          "strokeWidth": 1
+        },
+        "data": {
+          "url": "https://raw.githubusercontent.com/Yi-Ju-Lee/FIT3179/main/assignment/js/america-2.json",
+          "format": {"type": "topojson", "feature": "states"}
+        }
+      },
+      {
+        "mark": {"type": "circle"},
+        "data": {
+          "url": "https://raw.githubusercontent.com/Yi-Ju-Lee/FIT3179/main/assignment/data/f_1000.csv"
+        },
+        "selection": {
+            "Sector": {
+            "type": "multi",
+            "fields": ["sector"],
+            "bind": "legend"
+            }
+            },
+        "encoding": {
+          "latitude": {"field": "lat"},
+          "longitude": {"field": "lng"},
+          "size": {
+            "field": "revenue",
+            "type": "quantitative",
+            "scale": {"rangeMax": 3000},
+            "legend": {"title": "Revenue"}
+          },
+          "order": {"field": "revenue", "sort": "descending"},
+          "color": {
+            "field": "sector",
+            "type": "nominal",
+            "scale": {"scheme": "category20"},
+            "legend": {"title": "Sector"}
+          },
+          "opacity": {
+            "condition": {"selection": "Sector", "value": 0.7},
+            "value": 0.03
+          },
+          "tooltip": [
+            {"field": "company", "type": "nominal", "title": "Company"},
+            {"field": "rank", "type": "ordinal", "title": "Rank"},
+            {"field": "sector", "type": "nominal", "title": "Sector"},
+            {"field": "revenue", "type": "quantitative", "title": "Revenue"},
+            {"field": "profit", "type": "quantitative", "title": "Profit"},
+            {"field": "ceo_woman", "type": "nominal", "title": "Is CEO woman"}
+          ]
+        }
+      }
+    ]
+  }

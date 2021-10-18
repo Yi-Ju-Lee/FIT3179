@@ -1,0 +1,48 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 550,
+    "height": 600,
+    "autosize": "fit",
+    "title": "Fortune 1000 in US",
+    "data": {
+      "url": "https://raw.githubusercontent.com/Yi-Ju-Lee/FIT3179/main/assignment/data/f_1000.csv"
+    },
+    "params": [
+      {
+        "name": "Number_of_Company",
+        "value": 150,
+        "bind": {
+          "input": "range",
+          "min": 10,
+          "max": 1000,
+          "step": 5,
+          "name": "Number of Company : "
+        }
+      }
+    ],
+    "transform": [{"filter": "datum.rank <= Number_of_Company"}],
+    "mark": "bar",
+    "encoding": {
+      "x": {"field": "revenue", "type": "quantitative", "title": "Revenue"},
+      "y": {
+        "field": "company",
+        "type": "nominal",
+        "sort": {"field": "revenue", "order": "descending"},
+        "axis":{"labelOverlap": "true"}
+      },
+      "color": {
+        "field": "sector",
+        "type": "nominal",
+        "scale": {"scheme": "category20"},
+        "legend": {"title": "Sector"}
+      },
+      "tooltip": [
+        {"field": "company", "type": "nominal", "title": "Company"},
+        {"field": "rank", "type": "ordinal", "title": "Rank"},
+        {"field": "sector", "type": "nominal", "title": "Sector"},
+        {"field": "revenue", "type": "quantitative", "title": "Revenue"},
+        {"field": "profit", "type": "quantitative", "title": "Profit"},
+        {"field": "ceo_woman", "type": "nominal", "title": "Is CEO woman"}
+      ]
+    }
+  }
